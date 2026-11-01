@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Note7 հետկանչ. վերադարձներ և փոխարինում</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1b2430;--mut:#5d6877;--line:#d9dee5;--A:#3b5ba5;--B:#0f7b6c;--bad:#b3372f;--soft:#eef1f6}
+@media(prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b222b;--ink:#e8ecf1;--mut:#9aa6b4;--line:#2d3743;--A:#7d9bec;--B:#3fc4ae;--bad:#f0746b;--soft:#222b36}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:"Noto Sans Armenian","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);display:flex;flex-direction:column;line-height:1.5}
+header{display:flex;align-items:center;gap:14px;padding:10px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+header b{font-size:15px}
+#who{margin-left:auto;font-size:13px;padding:3px 10px;border-radius:99px;background:var(--soft);color:var(--mut)}
+#bar{height:3px;background:var(--A);width:0;transition:width .3s}
+main{flex:1;position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;padding:26px clamp(16px,5vw,64px) 16px;overflow:auto;display:none}
+.slide.on{display:block}
+h1{font-size:clamp(24px,4vw,40px);margin:0 0 6px;line-height:1.2}
+h2{font-size:clamp(20px,3vw,30px);margin:0 0 4px}
+h3{font-size:16px;margin:14px 0 6px}
+p{margin:6px 0;max-width:78ch}
+.sub{color:var(--mut);margin-bottom:14px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px}
+.kpi{font-size:34px;font-weight:700;line-height:1.1}
+.kpi small{display:block;font-size:13px;font-weight:400;color:var(--mut);margin-top:4px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+th{background:var(--soft)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.wrap{overflow-x:auto}
+.A{color:var(--A)}.B{color:var(--B)}.bad{color:var(--bad)}
+.bars div.r{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:14px}
+.bars .l{width:200px;flex:none}
+.bars .t{flex:1;background:var(--soft);border-radius:4px;height:24px;position:relative}
+.bars .f{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;color:#fff;font-size:13px;font-weight:600;white-space:nowrap}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;padding:6px 12px}
+button:hover{border-color:var(--A)}
+button.on{background:var(--A);color:#fff;border-color:var(--A)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--A);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+label{font-size:13px;color:var(--mut);display:block}
+input[type=range]{width:100%}
+.ctl{min-width:170px;flex:1}
+.ctl output{color:var(--ink);font-weight:600}
+svg text{fill:var(--mut);font-size:11px}
+.note{font-size:13px;color:var(--mut);border-left:3px solid var(--line);padding-left:10px;margin-top:12px}
+.say{margin-top:12px;padding:10px 14px;background:var(--soft);border-radius:8px;font-size:14px}
+.cell{display:inline-block;width:46px;text-align:center;padding:4px 0;margin:1px;border-radius:4px;font-size:12px;background:var(--soft)}
+.bt{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:10px}
+.bt .card{font-size:13px}
+.bt .mid{background:var(--bad);color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;font-weight:600}
+.chip{display:inline-block;margin:3px;padding:4px 10px;border:1px solid var(--line);border-radius:99px;background:var(--card);cursor:pointer;font-size:13px}
+nav{display:flex;align-items:center;gap:8px;padding:8px 20px;border-top:1px solid var(--line);background:var(--card)}
+.dots{display:flex;gap:6px;margin:0 auto;flex-wrap:wrap}
+.dots button{padding:2px 9px;font-size:13px}
+@media(max-width:700px){.bt{grid-template-columns:1fr}.bars .l{width:110px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><b>Samsung Galaxy Note7 հետկանչ</b><span id="who"></span></header>
+<div id="bar"></div>
+<main>
+
+<section class="slide" data-who="Հայկուհի">
+<h1>Note7-ի հետկանչ. ինչպես վերադարձնել և փոխարինել սարքերը</h1>
+<p class="sub">Սա ուսումնական մոդել է՝ հիմնված 2016 թ. իրական հետկանչի վրա։ Թվերը դասախոսի տված տվյալներն են, ոչ թե Samsung-ի իրական ծավալները։</p>
+<div class="grid">
+<div class="card"><div class="kpi">2,400<small>հետկանչվող սարք</small></div></div>
+<div class="card"><div class="kpi">1,400<small>արդեն վաճառվել է հաճախորդներին</small></div></div>
+<div class="card"><div class="kpi">1,000<small>դեռ խանութներում է, առանձնացված</small></div></div>
+<div class="card"><div class="kpi">900<small>անվտանգ փոխարինող սարք կա պաշարում</small></div></div>
+<div class="card"><div class="kpi">300/օր<small>սարք ենք կարողանում ընդունել և փոխարինել</small></div></div>
+</div>
+<h3>Հարցը</h3>
+<p>Ինչպե՞ս ընդունել 1,400 հաճախորդի վտանգավոր սարքերն ու փոխարինել անվտանգներով, եթե անվտանգ սարքերը բավարար չեն։ Միաժամանակ պետք է վերականգնել խանութների 1,000 սարքի պաշարը։ Համեմատում ենք երկու ճանապարհ՝ <b class="A">A՝ փոխարինում փուլերով</b> և <b class="B">B՝ արագ լրացում այլ պահեստից</b>։</p>
+<p class="note">Իրական փաստ. 2016 թ. հոկտեմբերի 13-ին Samsung-ը հետկանչն ընդլայնեց և ներառեց նաև արդեն փոխարինված սարքերը։ Դրա համար մեր մոդելում փոխարինող սարքերը Note7 չեն, այլ անվտանգության ստուգումն անցած այլ մոդելներ։</p>
+</section>
+
+<section class="slide" data-who="Հայկուհի">
+<h2>Չորս հիմնական թիվը</h2>
+<p class="sub">500-ը և 1,500-ը տարբեր հարցերի պատասխաններ են։</p>
+<div class="wrap"><table>
+<tr><th>Հաշվարկ</th><th>Արդյունք</th><th>Ինչ է ցույց տալիս</th></tr>
+<tr><td>1,400 − 900</td><td class="n">500 սարք</td><td>Քանի հաճախորդ անմիջապես նոր սարք չի ստանա</td></tr>
+<tr><td>2,400 − 900</td><td class="n">1,500 սարք</td><td>Ընդհանուր առմամբ քանի սարք պետք է գնել՝ հաճախորդների և խանութների համար</td></tr>
+<tr><td>1,400 ÷ 300</td><td class="n">4.67, այսինքն՝ 5 օր</td><td>Առնվազն քանի օր կպահանջվի հաճախորդների սարքերն ընդունելու համար</td></tr>
+<tr><td>900 ÷ 1,400 × 100%</td><td class="n">64.3%</td><td>Հաճախորդների որ մասի համար կբավականացնի առկա պաշարը</td></tr>
+</table></div>
+<div class="grid" style="margin-top:14px">
+<div class="card bars"><b>500-ի հաշվարկը (հաճախորդներ)</b>
+<div class="r"><span class="l">Վաճառված</span><div class="t"><div class="f" style="width:58%;background:var(--A)">1,400</div></div></div>
+<div class="r"><span class="l">Առկա պաշար</span><div class="t"><div class="f" style="width:37.5%;background:var(--B)">900</div></div></div>
+<div class="r"><span class="l">Պակասում է</span><div class="t"><div class="f" style="width:20.8%;background:var(--bad)">500</div></div></div></div>
+<div class="card bars"><b>1,500-ի հաշվարկը (բոլոր սարքերը)</b>
+<div class="r"><span class="l">Հետկանչվող</span><div class="t"><div class="f" style="width:100%;background:var(--A)">2,400</div></div></div>
+<div class="r"><span class="l">Առկա պաշար</span><div class="t"><div class="f" style="width:37.5%;background:var(--B)">900</div></div></div>
+<div class="r"><span class="l">Պակասում է</span><div class="t"><div class="f" style="width:62.5%;background:var(--bad)">1,500</div></div></div></div>
+</div>
+<p class="note">1,500 = 500 հաճախորդների համար + 1,000 խանութների համար։ 2,400 ÷ 300 = 8 օրը հաճախորդների վերադարձի ժամկետ չէ, որովհետև խանութների 1,000 սարքը հավաքվում է առանձին՝ տեղում։</p>
+</section>
+
+<section class="slide" data-who="Աշոտ">
+<h2>A և B տարբերակները</h2>
+<div class="grid">
+<div class="card"><b class="A">A՝ փոխարինում փուլերով</b><p>Առաջին 3 օրը փոխարինում ենք առկա 900 սարքով։ 4-րդ և 5-րդ օրը ընդունում ենք մնացած 500 հաճախորդի վտանգավոր սարքերը, բայց նոր սարք դեռ չունենք, ուստի նրանք սպասում են։ 10-րդ օրը գալիս է սովորական 1,500 սարքը, և վերջին փոխարինումը կատարվում է 11-րդ օրը։</p></div>
+<div class="card"><b class="B">B՝ արագ լրացում</b><p>Առաջին 3 օրը նույնն է։ 4-րդ օրը մեկ այլ պահեստից ստանում ենք 500 անվտանգ սարք՝ մեկ սարքի համար 1,600 դրամ հավելավճարով։ Այդպես ոչ ոք չի սպասում։ 10-րդ օրը սովորական խմբաքանակից ստանում ենք արդեն 1,000 սարք։</p></div>
+<div class="card"><b>Ընդհանուր գնումը նույնն է՝ 1,500</b><p>Տարբերվում են միայն ժամկետը և գինը։ B-ի հավելավճարը՝ 500 × 1,600 = 800,000 դրամ։ Եթե սովորական պատվերը հնարավոր չլինի կրճատել, B-ում կգնենք 500 սարք ավելի, և այն կմնա պաշարում։</p></div>
+</div>
+<h3>Քանի հաճախորդ է սպասում (բազային պայմաններում)</h3>
+<div id="strip"></div>
+<p class="note">A-ն և B-ն մեր ընտրած լուծումներն են։ Սցենարները արտաքին պայմանների փոփոխություններն են՝ օրինակ կարողության նվազումը կամ մատակարարման ուշացումը։</p>
+</section>
+
+<section class="slide" data-who="Աշոտ">
+<h2>Սցենարային վերլուծություն</h2>
+<p class="sub">Նույն արտաքին պայմաններում համեմատում ենք A-ն և B-ն։ Սցենարներին հավանականություն չենք տալիս, որովհետև դրա համար տվյալ չունենք։ Ընտրեք սցենար կամ փոխեք պայմանները ձեռքով։</p>
+<div class="row" id="pre"></div>
+<div class="row">
+<div class="ctl"><label>Կարողություն՝ <output id="oc"></output> սարք/օր</label><input type="range" id="cap" min="100" max="400" step="50"></div>
+<div class="ctl"><label>Սովորական խմբաքանակը գալիս է՝ <output id="orr"></output>-րդ օրը</label><input type="range" id="reg" min="6" max="18"></div>
+<div class="ctl"><label>B-ի արագ 500 սարքը գալիս է՝ <output id="oe"></output>-րդ օրը</label><input type="range" id="ear" min="4" max="18"></div>
+</div>
+<div class="grid" id="kp"></div>
+<h3>Քանի հաճախորդ է սպասում օրական</h3>
+<svg id="qc" viewBox="0 0 720 190" width="100%"></svg>
+<div class="row"><button id="tA" class="on">A-ի օրական աղյուսակ</button><button id="tB">B-ի օրական աղյուսակ</button></div>
+<div class="wrap" style="max-height:200px;overflow:auto"><table id="dt"></table></div>
+<p class="note">Արժեք = 248,000,000 + սպասում × 500 (B-ի դեպքում՝ ևս 800,000)։ Սպասումը չափում ենք սարք-օրով. ամեն սպասող հաճախորդ յուրաքանչյուր օրվա համար հաշվվում է 1 սարք-օր։</p>
+</section>
+
+<section class="slide" data-who="Աշոտ">
+<h2>A և B-ի համեմատությունը</h2>
+<div class="wrap"><table id="cmp"></table></div>
+<h3>B-ն որքանով է A-ից էժան (+) կամ թանկ (−)</h3>
+<svg id="dc" viewBox="0 0 720 200" width="100%"></svg>
+<p>B-ն ավելի ձեռնտու է 1-ին և 2-րդ սցենարներում, A-ն՝ 3-րդում և 4-րդում։ Եթե սխալվենք A-ն ընտրելով, ամենաշատը կկորցնենք 700,000 դրամ, իսկ B-ն ընտրելով՝ 800,000։ Եթե պայմանագրում գրենք, որ ուշացման դեպքում հավելավճարը վերադարձվում է, B-ի ամենավատ դեպքը կլինի ընդամենը 50,000 դրամ։</p>
+<p class="note">Սպասման արժեքը՝ 500 դրամ/սարք-օր, ուսումնական ենթադրություն է, ոչ թե հաստատված վնաս։</p>
+</section>
+
+<section class="slide" data-who="Հայկուհի">
+<h2>DAP պայմանը և անվտանգ փոխադրումը</h2>
+<p class="sub">Նոր անվտանգ սարքերը առաքվում են DAP պայմանով՝ «Երևան» ուսումնական բաշխման կենտրոն, Լոգիստիկայի փ. 1, ընդունման հարթակ 1, Երևան, ՀՀ (Incoterms 2020)։ Հասցեն հորինված է։</p>
+<div class="wrap"><table>
+<tr><th>Հարց</th><th>Ով է անում</th></tr>
+<tr><td>Փոխադրումը կազմակերպում և վճարում է</td><td>Վաճառողը</td></tr>
+<tr><td>Արտահանման ձևակերպումները</td><td>Վաճառողը</td></tr>
+<tr><td>Բեռնաթափումը</td><td>Գնորդը (մենք)</td></tr>
+<tr><td>Ներմուծման ձևակերպումներն ու տուրքերը</td><td>Գնորդը (մենք)</td></tr>
+<tr><td>Ռիսկն անցնում է մեզ</td><td>Երբ բեռը ժամանել է նշված վայր և պատրաստ է բեռնաթափման</td></tr>
+<tr><td>Ապահովագրություն</td><td>DAP-ով պարտադիր չէ։ Մեր մոդելում այն վաճառողի վրա դնելը լրացուցիչ պայման է</td></tr>
+</table></div>
+<div class="grid" style="margin-top:12px">
+<div class="card"><b>Փաստաթղթային խնդիր</b><p>Նոր, անվտանգ սարքի մարտկոցը փաստաթղթերում նշված չէ։ Դա շտկվում է. ճիշտ դասակարգում, փաթեթավորում և հայտարարագիր։</p></div>
+<div class="card"><b class="bad">Օդային փոխադրման արգելք</b><p>Անվտանգության պատճառով հետկանչված մարտկոցով Note7-ը օդով չեն փոխադրում։ Փաստաթուղթ լրացնելով այս արգելքը չի վերանում։</p></div>
+</div>
+<h3>Հիմնական տերմինները (սեղմեք)</h3>
+<div id="gl"></div><p id="gd" class="note">Սեղմեք որևէ տերմինի վրա։</p>
+<p class="note">Պահուստային տարբերակ կարող է լինել Վրաստանի պահեստից Թբիլիսի–Երևան ցամաքային առաքումը։ Սա ուսումնական օրինակ է. պաշարը, գինը, թույլտվություններն ու ժամկետը իրականում պետք է ստուգվեն։</p>
+</section>
+
+<section class="slide" data-who="Հայկուհի">
+<h2>Զգայունություն, շեմեր և անվտանգություն</h2>
+<div class="row"><button id="s1" class="on">Զգայունության վերլուծություն</button><button id="s2">Bow-Tie</button></div>
+<div id="sens">
+<div class="row">
+<div class="ctl"><label>Մեկ սարք-օր սպասման արժեքը՝ <output id="ow"></output> դրամ</label><input type="range" id="w" min="0" max="1000" step="10"></div>
+<div class="ctl"><label>Արագացման հավելավճարը՝ <output id="os"></output> դրամ մեկ սարքի համար</label><input type="range" id="fee" min="0" max="4500" step="100"></div>
+</div>
+<div class="grid" id="sk"></div>
+<svg id="lc" viewBox="0 0 720 210" width="100%"></svg>
+<div class="grid">
+<div class="card"><b>Շեմ 1. հավելավճարի առավելագույնը</b><p>500 × s = 3,000 × 500, ուստի s = <b>3,000 դրամ</b> մեկ սարքի համար։</p></div>
+<div class="card"><b>Շեմ 2. սպասման արժեքը, երբ A-ն և B-ն հավասար են</b><p>3,000 × w = 800,000, ուստի w ≈ <b>266.67 դրամ</b> սարք-օրի համար։</p></div>
+<div class="card"><b>Վաղ խմբաքանակի օրը</b><p>Եթե այն գալիս է d-րդ օրը, B-ի սպասումը 500 × (d − 4) սարք-օր է։ 500 դրամի դեպքում B-ն ձեռնտու է մինչև 6-րդ օրը։</p></div>
+</div>
+<p class="note">249.5 մլն դրամը զուտ վնաս չէ, որովհետև գնված սարքերի մի մասը վաճառվելու է։ Զուտ վնասը հաշվելու համար պետք են ինքնարժեքը, մատակարարի և ապահովագրության հատուցումը, կորցրած վաճառքի մարժան և փաստացի լրացուցիչ ծախսերը։</p>
+</div>
+<div id="bt" style="display:none">
+<div class="bt">
+<div class="card"><b>Պատճառներ</b><p>Սարքը շարունակում են օգտագործել կամ լիցքավորել. այն վնասվում է տեղափոխելիս. վտանգավոր և անվտանգ սարքերը խառնվում են. վերադարձն ուշանում է։</p><b>Ինչպես կանխել</b><p>Հայտարարություն սարքն անջատելու մասին. վերադարձների արագ ընդունում. խանութների 1,000 սարքի առանձնացում. նշված փաթեթավորում. օդային փոխադրման արգելք։</p></div>
+<div class="card mid">Սարքի գերտաքացում կամ բռնկում</div>
+<div class="card"><b>Հետևանքներ</b><p>Վնասվածք, գույքի վնաս, վստահության կորուստ և իրավական հետևանքներ։</p><b>Ինչպես մեղմել</b><p>Հրդեհից պաշտպանված պահպանում, արտակարգ իրավիճակի պլան, միջադեպերի գրանցում, հաճախորդների հետ արագ կապ։</p></div>
+</div>
+<p class="note">Վտանգավոր սարքերի ընդունումը A-ում և B-ում նույն արագությամբ է գնում, ուստի միայն արագ փոխարինումից չենք կարող ասել, թե հրդեհի հավանականությունը նվազել է։ Ռիսկի նվազեցման տոկոսներ չենք նշում, քանի որ դրա համար ապացույց չունենք։</p>
+</div>
+</section>
+
+<section class="slide" data-who="Աշոտ">
+<h2>Եթե ամեն ինչ այլ կերպ ստացվի. պահուստային պլանը և եզրակացությունը</h2>
+<div class="grid">
+<div class="card"><b>Եթե վաղ խմբաքանակը մինչև 3-րդ օրը չհաստատվի</b><p>Ստուգում ենք՝ այն 7-րդ օրից ուշ չի՞ գալու։ Եթե այո, B-ն արդեն չի արդարանում, և մնում ենք A-ով։</p></div>
+<div class="card"><b>Եթե կարողությունը նվազի</b><p>Ավելացնում ենք ընդունման կետերը, որովհետև դա երկարացնում է և՛ վերադարձը, և՛ փոխարինումը։</p></div>
+<div class="card"><b>Այլ աղբյուրներ</b><p>Երկրորդ գործընկեր կամ Վրաստանի պահեստ (ուսումնական օրինակ, իրականում պետք է ստուգել)։</p></div>
+<div class="card"><b>Հաճախորդների համար</b><p>Տեղեկացում սպասման ժամկետի մասին, փոխարինող սարք սպասելու ընթացքում կամ գումարի վերադարձ։</p></div>
+</div>
+<h3>Եզրակացություն</h3>
+<p>Հաճախորդների վերադարձը երկու տարբերակում էլ ավարտվում է 5-րդ օրը։ Բազային պայմաններում B-ն 700,000 դրամով էժան է, բայց եթե վաղ խմբաքանակը ուշանում է մինչև 7-րդ օր կամ հավելավճարը չի վերադարձվում, այդ առավելությունը վերանում է։ Այդ պատճառով լավագույն ընտրությունը B-ն է, բայց միայն այն դեպքում, երբ ուշացման դեպքում հավելավճարը վերադարձվում է։</p>
+<p class="note">Բոլոր թվերն ուսումնական են և չեն ցույց տալիս Samsung-ի իրական վնասը կամ խնայողությունը։ Սցենարներին հավանականություն չենք տվել, քանի որ դրա համար տվյալներ չկան։ Աղբյուրներ՝ Samsung-ի հայտարարությունը (13.10.2016), ICC Incoterms 2020, IATA Lithium Battery Guidance 2026, HM Treasury Green Book։</p>
+</section>
+
+</main>
+<nav><button id="pv" aria-label="Նախորդ">←</button><div class="dots" id="dots"></div><button id="nx" aria-label="Հաջորդ">→</button></nav>
+
+<script>
+const $=s=>document.querySelector(s),f=n=>Math.round(n).toLocaleString('en-US');
+const BASE=248e6;
+function sim(m,cap,reg,ear,w,s){
+ let stock=900,left=1400,q=[],rows=[],wait=0,imm=0,rE=0,pE=0;
+ for(let d=1;d<=60;d++){
+  let arr=0;
+  if(m=='A'&&d==reg)arr=1500;
+  if(m=='B'){if(d==ear)arr+=500;if(d==reg)arr+=1000}
+  stock+=arr;
+  const r=Math.min(cap,left);left-=r;if(r){rE=d;q.push([d,r])}
+  const qt0=q.reduce((a,g)=>a+g[1],0),rep=Math.min(cap,stock,qt0);
+  let need=rep;
+  while(need){const g=q[0],t=Math.min(g[1],need);if(g[0]==d)imm+=t;g[1]-=t;need-=t;if(!g[1])q.shift()}
+  stock-=rep;if(rep)pE=d;
+  const qt=q.reduce((a,g)=>a+g[1],0);wait+=qt;
+  rows.push({d,r,arr,rep,qt,stock});
+  if(!left&&!qt&&d>=Math.max(reg,ear))break;
+ }
+ const nW=1400-imm;
+ return{rows,rE,pE,imm:imm/1400,wait,avgAll:wait/1400,avgW:nW?wait/nW:null,cost:BASE+(m=='B'?500*s:0)+wait*w};
+}
+const PRE=[['1. Բազային պայմաններ',300,10,4],['2. Վաղ խմբաքանակը ուշանում է',300,10,6],['3. Արագացումը օգուտ չի տալիս',300,10,10],['4. Բոլոր խնդիրները միասին',200,13,10]];
+let SL=0,mode='A';
+const slides=[...document.querySelectorAll('.slide')];
+function go(i){SL=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,k)=>s.classList.toggle('on',k==SL));
+ $('#who').textContent='Սահիկ '+(SL+1)+'/'+slides.length+' · '+slides[SL].dataset.who;
+ $('#bar').style.width=((SL+1)/slides.length*100)+'%';
+ [...$('#dots').children].forEach((b,k)=>b.classList.toggle('on',k==SL));
+ history.replaceState(null,'','#'+(SL+1));
+}
+slides.forEach((_,i)=>{const b=document.createElement('button');b.textContent=i+1;b.onclick=()=>go(i);$('#dots').append(b)});
+$('#pv').onclick=()=>go(SL-1);$('#nx').onclick=()=>go(SL+1);
+addEventListener('keydown',e=>{if(e.target.tagName=='INPUT')return;if(e.key=='ArrowRight'||e.key==' ')go(SL+1);if(e.key=='ArrowLeft')go(SL-1)});
+
+/* slide 3 strip */
+(()=>{const mk=(m,c)=>{const r=sim(m,300,10,4,500,1600).rows.filter(x=>x.d<=12);
+ return '<p><b class="'+m+'">'+m+'</b> '+r.map(x=>'<span class="cell" style="background:rgba(179,55,47,'+Math.min(x.qt/500,1)*0.6+');">օր '+x.d+'<br><b>'+x.qt+'</b></span>').join('')+'</p>'};
+ $('#strip').innerHTML=mk('A')+mk('B')+'<p class="note">Թիվը այն հաճախորդների քանակն է, ովքեր օրվա վերջին դեռ փոխարինող սարք չեն ստացել։ Որքան մուգ է, այնքան հերթը երկար է։</p>'})();
+
+/* slide 4 */
+function bars(svg,A,B,max){
+ const W=720,H=190,n=Math.max(A.length,B.length),bw=(W-40)/n;let o='';
+ for(let g=0;g<=4;g++){const y=H-24-(H-44)*g/4;o+=`<line x1="30" x2="${W}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="0" y="${y+4}">${Math.round(max*g/4)}</text>`}
+ for(let i=0;i<n;i++){const x=34+i*bw;
+  [[A[i]||0,'var(--A)',0],[B[i]||0,'var(--B)',1]].forEach(([v,c,k])=>{const h=(H-44)*v/max;o+=`<rect x="${x+k*(bw/2-1)}" y="${H-24-h}" width="${Math.max(bw/2-2,2)}" height="${h}" fill="${c}"><title>օր ${i+1}: ${v}</title></rect>`});
+  if(n<=24||i%2==0)o+=`<text x="${x+bw/3}" y="${H-8}">${i+1}</text>`}
+ o+=`<rect x="560" y="2" width="10" height="10" fill="var(--A)"/><text x="574" y="11">A</text><rect x="600" y="2" width="10" height="10" fill="var(--B)"/><text x="614" y="11">B</text>`;
+ $(svg).innerHTML=o}
+function draw4(){
+ const cap=+$('#cap').value,reg=+$('#reg').value,ear=+$('#ear').value;
+ $('#oc').textContent=cap;$('#orr').textContent=reg;$('#oe').textContent=ear;
+ const a=sim('A',cap,reg,ear,500,1600),b=sim('B',cap,reg,ear,500,1600);
+ const k=(m,r)=>`<div class="card"><b class="${m}">${m}</b><p>Վերադարձներն ավարտվում են՝ ${r.rE}-րդ օրը<br>Փոխարինումներն ավարտվում են՝ ${r.pE}-րդ օրը<br>Նույն օրը նոր սարք ստացել է՝ ${(r.imm*100).toFixed(1)}%<br>Սպասում՝ ${f(r.wait)} սարք-օր (միջինը ${r.avgAll.toFixed(2)} օր, միայն սպասողների համար՝ ${r.avgW?r.avgW.toFixed(1):'—'})<br><b>Արժեք՝ ${f(r.cost)} դրամ</b></p></div>`;
+ const d=a.cost-b.cost;
+ $('#kp').innerHTML=k('A',a)+k('B',b)+`<div class="card"><b>Տարբերություն</b><p class="${d>=0?'B':'bad'}" style="font-size:20px;font-weight:700">${d>=0?'B-ն էժան է՝ ':'A-ն էժան է՝ '}${f(Math.abs(d))} դրամ</p></div>`;
+ const n=Math.max(a.rows.length,b.rows.length,12),pad=r=>Array.from({length:n},(_,i)=>r.rows[i]?r.rows[i].qt:0);
+ bars('#qc',pad(a),pad(b),Math.max(500,...pad(a),...pad(b)));
+ const r=(mode=='A'?a:b).rows;
+ $('#dt').innerHTML='<tr><th>Օր</th><th class="n">Վերադարձ</th><th class="n">Մուտք</th><th class="n">Փոխարինում</th><th class="n">Հերթ</th><th class="n">Պաշար</th></tr>'+r.map(x=>`<tr><td>${x.d}</td><td class="n">${x.r}</td><td class="n">${x.arr}</td><td class="n">${x.rep}</td><td class="n">${x.qt}</td><td class="n">${x.stock}</td></tr>`).join('')}
+PRE.forEach((p,i)=>{const b=document.createElement('button');b.textContent=p[0];b.onclick=()=>{$('#cap').value=p[1];$('#reg').value=p[2];$('#ear').value=p[3];[...$('#pre').children].forEach((x,k)=>x.classList.toggle('on',k==i));draw4()};$('#pre').append(b)});
+['cap','reg','ear'].forEach(i=>$('#'+i).oninput=()=>{[...$('#pre').children].forEach(x=>x.classList.remove('on'));draw4()});
+$('#tA').onclick=()=>{mode='A';$('#tA').classList.add('on');$('#tB').classList.remove('on');draw4()};
+$('#tB').onclick=()=>{mode='B';$('#tB').classList.add('on');$('#tA').classList.remove('on');draw4()};
+$('#pre').children[0].click();
+
+/* slide 5 */
+(()=>{let h='<tr><th>Սցենար</th><th>Տարբերակ</th><th class="n">Վերադարձն ավարտվում է (օր)</th><th class="n">Փոխարինումն ավարտվում է (օր)</th><th class="n">Նույն օրը փոխարինվածներ</th><th class="n">Սպասում (սարք-օր)</th><th class="n">Միջին սպասում (բոլորը)</th><th class="n">Միջին սպասում (միայն սպասողներ)</th><th class="n">Արժեք (դրամ)</th></tr>',D=[];
+ PRE.forEach((p,i)=>{const a=sim('A',p[1],p[2],p[3],500,1600),b=sim('B',p[1],p[2],p[3],500,1600);D.push(a.cost-b.cost);
+  [['A',a],['B',b]].forEach(([m,r])=>h+=`<tr><td>${i+1}</td><td class="${m}">${m}</td><td class="n">${r.rE}</td><td class="n">${r.pE}</td><td class="n">${(r.imm*100).toFixed(1)}%</td><td class="n">${f(r.wait)}</td><td class="n">${r.avgAll.toFixed(2)}</td><td class="n">${r.avgW?r.avgW.toFixed(1):'—'}</td><td class="n">${f(r.cost)}</td></tr>`)});
+ $('#cmp').innerHTML=h;
+ const mx=800000;let o='<line x1="40" x2="720" y1="100" y2="100" stroke="var(--mut)"/>';
+ D.forEach((d,i)=>{const x=80+i*160,hh=Math.abs(d)/mx*85,y=d>=0?100-hh:100;
+  o+=`<rect x="${x}" y="${y}" width="90" height="${Math.max(hh,1)}" fill="${d>=0?'var(--B)':'var(--bad)'}"/><text x="${x+45}" y="${d>=0?y-5:y+hh+13}" text-anchor="middle">${d>=0?'+':'−'}${f(Math.abs(d))}</text><text x="${x+45}" y="195" text-anchor="middle">Սցենար ${i+1}</text>`});
+ $('#dc').innerHTML=o})();
+
+/* slide 6 glossary */
+const GL={'UN 3481':'ՄԱԿ-ի համար, որով նշվում են սարքի մեջ կամ սարքի հետ փաթեթավորված լիթիում-իոնային մարտկոցները։','PI 967':'IATA-ի փաթեթավորման հրահանգ՝ սարքի մեջ տեղադրված մարտկոցների համար։','UN 38.3':'ՄԱԿ-ի փորձարկումների ցանկ. մարտկոցը պետք է անցած լինի այն, որպեսզի թույլատրվի փոխադրել։','AWB':'Air Waybill՝ օդային բեռնագիր, օդային փոխադրման հիմնական փաստաթուղթը։','DGD':'Վտանգավոր բեռի ուղարկողի հայտարարագիր։ Այն պարտադիր չէ բոլոր բեռների համար. կախված է փաթեթավորման կանոնից և ստուգվում է IATA-ի ընթացիկ տարբերակում։'};
+Object.keys(GL).forEach(k=>{const c=document.createElement('span');c.className='chip';c.tabIndex=0;c.textContent=k;c.onclick=()=>$('#gd').textContent=k+'՝ '+GL[k];c.onkeydown=e=>{if(e.key=='Enter')c.click()};$('#gl').append(c)});
+
+/* slide 7 */
+function draw7(){
+ const w=+$('#w').value,s=+$('#fee').value;$('#ow').textContent=w;$('#os').textContent=s;
+ const A=BASE+3000*w,B=BASE+800000-500*1600+500*s,d=A-B;
+ $('#sk').innerHTML=`<div class="card"><b class="A">A</b><div class="kpi" style="font-size:22px">${f(A)}</div></div><div class="card"><b class="B">B</b><div class="kpi" style="font-size:22px">${f(B)}</div></div><div class="card"><b>Տարբերություն</b><div class="kpi ${d>0?'B':d<0?'bad':''}" style="font-size:22px">${d>0?'B-ն էժան է՝ ':d<0?'A-ն էժան է՝ ':'Հավասար՝ '}${f(Math.abs(d))}</div></div>`;
+ const X=v=>40+v/1000*660,lo=BASE-2e5,hi=BASE+3.2e6,Y=v=>190-(v-lo)/(hi-lo)*170;
+ let o=`<line x1="40" x2="700" y1="190" y2="190" stroke="var(--line)"/>
+ <line x1="${X(0)}" y1="${Y(BASE)}" x2="${X(1000)}" y2="${Y(BASE+3e6)}" stroke="var(--A)" stroke-width="2"/>
+ <line x1="${X(0)}" y1="${Y(B)}" x2="${X(1000)}" y2="${Y(B)}" stroke="var(--B)" stroke-width="2"/>
+ <line x1="${X(w)}" x2="${X(w)}" y1="20" y2="190" stroke="var(--mut)" stroke-dasharray="4"/>
+ <circle cx="${X(800000/3000)}" cy="${Y(BASE+8e5)}" r="4" fill="var(--bad)"/><text x="${X(266.67)+6}" y="${Y(BASE+8e5)-8}">w≈266.67 (s=1,600)</text>
+ <text x="40" y="204">w=0</text><text x="${X(1000)-30}" y="204">w=1000</text><text x="44" y="16" style="fill:var(--A)">A</text><text x="70" y="16" style="fill:var(--B)">B</text>`;
+ $('#lc').innerHTML=o}
+['w','fee'].forEach(i=>$('#'+i).oninput=draw7);
+$('#w').value=500;$('#fee').value=1600;draw7();
+$('#s1').onclick=()=>{$('#sens').style.display='';$('#bt').style.display='none';$('#s1').classList.add('on');$('#s2').classList.remove('on')};
+$('#s2').onclick=()=>{$('#sens').style.display='none';$('#bt').style.display='';$('#s2').classList.add('on');$('#s1').classList.remove('on')};
+go((+location.hash.slice(1)||1)-1);
+</script>
+</body>
+</html>
